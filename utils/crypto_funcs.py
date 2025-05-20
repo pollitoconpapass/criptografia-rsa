@@ -16,11 +16,7 @@ def generate_primes(bits=8):
 
     return p, q
 
-def rsa_keygen(bits=8):
-    # Paso 1: Generar dos números primos
-    p, q = generate_primes(bits)
-    print(f"Primos generados: p={p}, q={q}")
-
+def rsa_keygen(p, q): # Paso 1: Generar (obtener) dos números primos
     # Paso 2: Calcular n = p * q
     n = p * q
 
