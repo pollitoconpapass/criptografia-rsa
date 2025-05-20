@@ -4,6 +4,20 @@ from utils.crypto_funcs import rsa_keygen, encrypt, decrypt, generate_primes
 
 st.title("🥷 Criptografía RSA")
 
+with st.expander("Instrucciones"):
+    st.write("""
+
+    1. Necesitas un archivo `.txt`con texto en tus documentos.
+    2. Sube el archivo `.txt` a la aplicación.
+    3. Se generarán llaves pública y privada.
+    4. También se encriptará el archivo. 
+    5. Descarga el archivo encriptado y la llave privada.
+    6. Luego, para desencriptar el archivo, ve a la opción `Desencriptar` en `¿Qué quieres hacer hoy? `.
+    7. Sube el archivo encriptado y la llave privada donde se indique.
+    8. El texto desencriptado se mostrará en la pantalla.
+    """)
+    st.image("imgs/instructions.png")
+
 option = st.selectbox("¿Qué quieres hacer hoy? Selecciona una opción", ["Encriptar", "Desencriptar"])
 
 # === ENCRIPTAR ===
@@ -54,6 +68,7 @@ if option == "Encriptar":
     6. Clave pública: (e, n), Clave privada: (d, n).
 
             ''')
+            st.write("---\n Para este caso:")
             st.info(f"Primos generados: p={st.session_state.p}, q={st.session_state.q}")
             st.info(f"Modulo de encriptación: n={st.session_state.p*st.session_state.q}")
             st.info(f"Función de Euler: φ(n)={(st.session_state.p-1)*(st.session_state.q-1)}")

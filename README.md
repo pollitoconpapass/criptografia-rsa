@@ -69,7 +69,7 @@ def rsa_keygen(bits=8):
     # Clave pública: (e, n), Clave privada: (d, n)
     return (e, n), (d, n)
 ```
-1. Generar llaves publica y privada
+1. Generar numeros primos diferentes p y q
 2. Calcular  n = p * q
 3. Calcular la función de Euler `φ(n) = (p-1)(q-1)`
 4. Elegir aleatoriamente `d` mientras que `math.gcd`, `MCD[d, φ(n)] != 1`, volver a generar `d`
