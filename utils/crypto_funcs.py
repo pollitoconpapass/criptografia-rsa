@@ -36,10 +36,11 @@ def rsa_keygen(p, q): # Paso 1: Generar (obtener) dos números primos
 
 def encrypt(message, public_key):
     e, n = public_key
-    encrypted = [pow(ord(char), e, n) for char in message]
+    message_bytes = message.encode('utf-8')
+    encrypted = [pow(byte, e, n) for byte in message_bytes]
     return encrypted
 
 def decrypt(ciphertext, private_key):
     d, n = private_key
-    decrypted = ''.join([chr(pow(char, d, n)) for char in ciphertext])
-    return decrypted
+    decrypted_bytes = bytes([pow(char, d, n) for char in ciphertext])
+    return decrypted_bytes.decode('utf-8')
